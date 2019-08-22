@@ -5,8 +5,14 @@ module.exports = {
   mode: 'development',
   entry: path.resolve(__dirname, 'src', 'index.js'),
   output: {
-    path.resolve(__dirname, 'dist'),
-    filename: [name].js
+    path: path.resolve(__dirname, 'dist'),
+    filename: 'index.js'
+  },
+  devServer: {
+    host: 'localhost',
+    port: 3000,
+    stats: 'errors-only',
+    open: true
   },
   module: {
     rules: [
@@ -15,7 +21,7 @@ module.exports = {
         use: ['pug-loader']
       }
     ]
-  }
+  },
   plugins: [
     new HtmlWeebpackPlugins({
       template: path.resolve(__dirname, 'src', 'index.pug')
